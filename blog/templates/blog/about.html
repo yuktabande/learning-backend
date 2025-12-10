@@ -1,0 +1,8 @@
+{% extends "blog/base.html" %} {% block content %}
+<h2>Things I Like</h2>
+<ul>
+  {% for item in items %}
+  <li>{{ item }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

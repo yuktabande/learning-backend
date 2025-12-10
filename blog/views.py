@@ -1,14 +1,18 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from datetime import datetime
 
 def home(request):
-    return HttpResponse("Hello from your first Django Backend 🚀")
+    context = {
+        "name": "Yukta",
+        "date": datetime.now().date()
+    }
+    return render(request, "blog/home.html", context)
 
 def about(request):
-    return HttpResponse("About this website")
-
-def contact(request):
-    return HttpResponse("Contact Page")
+    context = {
+        "items": ["AI", "Backend", "Cloud", "Django", "Systems"]
+    }
+    return render(request, "blog/about.html", context)
 
 def say_hello(request, name):
-    return HttpResponse(f"Hello, {name}, welcome to Django!")
+    return render(request, "blog/hello.html", {"name": name})
